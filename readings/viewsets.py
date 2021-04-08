@@ -1,6 +1,6 @@
 from rest_framework.viewsets import ModelViewSet
-from .models import Coordinates, Vibrations
-from .serializer import CoordinateSerializer, VibrationSerializer
+from .models import Coordinates, Vibrations, Sensors
+from .serializer import CoordinateSerializer, VibrationSerializer, SensorSerializer
 
 
 class CoordinatesViewSet(ModelViewSet):
@@ -14,5 +14,12 @@ class VibrationViewSet(ModelViewSet):
 
     queryset = Vibrations.objects.all()
     serializer_class = VibrationSerializer
+    lookup_field = "slug"
+    
+
+class SensorsViewSet(ModelViewSet):
+
+    queryset = Sensors.objects.all()
+    serializer_class = SensorSerializer
     lookup_field = "slug"
 

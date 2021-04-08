@@ -23,4 +23,16 @@ class Vibrations(Model):
         ordering = ["vibration_reading"]
 
 
+class Sensors(Model):
+
+    location = CharField(max_length=31)
+    slug = AutoSlugField(max_length=31, populate_from=["location"])
+
+    class Meta:
+        ordering = ["location"]
+
+
+
+
+
 

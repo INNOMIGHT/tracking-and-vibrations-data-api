@@ -1,5 +1,5 @@
 from rest_framework.serializers import HyperlinkedModelSerializer
-from .models import Coordinates, Vibrations
+from .models import Coordinates, Vibrations, Sensors
 
 
 class CoordinateSerializer(HyperlinkedModelSerializer):
@@ -26,3 +26,15 @@ class VibrationSerializer(HyperlinkedModelSerializer):
                 "view_name": "vibrations-api-detail"
             }
         }
+
+
+class SensorSerializer(HyperlinkedModelSerializer):
+
+    model = Sensors
+    fields = "__all__"
+    extra_kwargs = {
+        "url": {
+            "loopkup_field": "slug",
+            "view_name": "sensors-api-detail"
+        }
+    }
